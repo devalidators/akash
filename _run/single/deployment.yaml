@@ -3,15 +3,23 @@ version: "2.0"
 
 services:
   web:
-    image: docker.io/rsum1/bitcoin_whitepaper:latest
+    image: quay.io/ovrclk/demo-app
     expose:
-      - port: 3000
+      - port: 80
+        as: 80
+        accept:
+          - hello.localhost
+        to:
+          - global: true
+  bew:
+    image: quay.io/ovrclk/demo-app
+    expose:
+      - port: 80
         as: 80
         accept:
           - hello1.localhost
         to:
           - global: true
-  
 
 profiles:
   compute:
@@ -34,6 +42,10 @@ profiles:
 
 deployment:
   web:
+    westcoast:
+      profile: web
+      count: 1
+  bew:
     westcoast:
       profile: web
       count: 1
