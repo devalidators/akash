@@ -240,29 +240,6 @@ __t1__
 make query-leases
 ```
 
-### Withdraw from the lease
-
-Withdraw some funds from the lease
-
-__t1__
-```sh
-make lease-withdraw
-```
-
-You should be able to see the escrow payment change in
-
-__t1__
-```sh
-make query-deployment
-```
-
-and
-
-__t1__
-```sh
-make query-accounts
-```
-
 ### Distribute Manifest
 
 Now that you have a lease with a provider, you need to send your
@@ -288,6 +265,29 @@ make provider-lease-ping
 
 If you chose to use port 80 when setting up kind, you can browse to your
 deployed workload at http://hello.localhost
+
+### Withdraw from the lease
+
+Withdraw some funds from the lease
+
+__t1__
+```sh
+make lease-withdraw
+```
+
+You should be able to see the escrow payment change in
+
+__t1__
+```sh
+make query-deployment
+```
+
+and
+
+__t1__
+```sh
+make query-accounts
+```
 
 ## Update Provider
 
