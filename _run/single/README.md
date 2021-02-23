@@ -85,7 +85,7 @@ use `ovrclk/akash:latest` to use the default image.
 
 __t1__
 ```sh
-DOCKER_IMAGE=ovrclk/akash:latest make kind-configure-image
+DOCKER_IMAGE=ovrclk/akash:stable make kind-configure-image
 ```
 
 ### Initialize Cluster
@@ -217,18 +217,50 @@ __t1__
 make query-bids
 ```
 
-And when the order is ready to be matched, a lease will be created:
+You should now see "pending" inventory inventory in the provider status:
+
+__t1__
+```sh
+make provider-status
+```
+
+### Create a lease
+
+Create a lease for the bid from the provider:
+
+__t1__
+```sh
+make lease-create
+```
+
+You should be able to see the lease with
 
 __t1__
 ```sh
 make query-leases
 ```
 
-You should now see "pending" inventory inventory in the provider status:
+### Withdraw from the lease
+
+Withdraw some funds from the lease
 
 __t1__
 ```sh
-make provider-status
+make lease-withdraw
+```
+
+You should be able to see the escrow payment change in
+
+__t1__
+```sh
+make query-deployment
+```
+
+and
+
+__t1__
+```sh
+make query-accounts
 ```
 
 ### Distribute Manifest
