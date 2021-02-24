@@ -81,11 +81,11 @@ make init kustomize-init
 
 The next step is to configure the docker image to be used. If you want to use a specific
 image, set `DOCKER_IMAGE` to the image reference in the command below. Otherwise
-use `ovrclk/akash:latest` to use the default image.
+use `ghcr.io/ovrclk/akash:stable` to use the default image.
 
 __t1__
 ```sh
-DOCKER_IMAGE=ovrclk/akash:stable make kind-configure-image
+DOCKER_IMAGE=ghcr.io/ovrclk/akash:stable make kind-configure-image
 ```
 
 ### Initialize Cluster
